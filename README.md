@@ -19,4 +19,4 @@ Para acesso admin, basta acessar [http://localhost:3000/admin](http://localhost:
 
 ## Autor
 
-Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>
+Caio Ribeiro Pereira - http://crpwebdev.com

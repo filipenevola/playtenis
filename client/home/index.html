@@ -1,0 +1,26 @@
+<template name="home">
+  {{> _header}}
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+        {{#each approvedPlaces}}
+          {{#ionItem path="home" buttonRight=true class="item-icon-right"}}
+            <h2>{{name}}</h2>
+            <small>
+              Address: {{city}}, {{neighborhood}} - {{zipCode}}
+              <br>
+              Courts: {{courts}}
+            </small>
+            {{> ionIcon icon="ios-arrow-forward" class="positive"}}
+          {{/ionItem}}
+        {{else}}
+          <h3 class="text-center">
+            {{> ionIcon icon="ios-tennisball" class="balanced large-icon"}}
+            <br>
+            No place registered yet
+          </h3>
+        {{/each}}
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

@@ -1,0 +1,7 @@
+<template name="_registerNewPlace">
+  {{#ionModal title="Register new place"}}
+    <div class="padding">
+      {{> quickForm schema=placesSchema id="registerNewPlace" type="method" meteormethod="registerPlace" buttonContent="Save" omitFields="approved"}}
+    </div>
+  {{/ionModal}}
+</template>

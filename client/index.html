@@ -1,0 +1,22 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta charset="utf-8">
+  <title>PlayTenis</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+</body>
+<template name="layout">
+  {{#ionBody}}
+    {{> ionNavBar class="bar-calm"}}
+    {{#ionNavView}}
+      {{> yield}}
+    {{/ionNavView}}
+    {{#if currentUser}}
+      {{#ionTabs style="ios" class="tabs-background-light tabs-color-positive"}}
+        {{> ionTab path="home" title="Home" icon="android-home"}}
+        {{> ionTab path="logout" title="Logout" icon="android-exit"}}
+      {{/ionTabs}}
+    {{/if}}
+  {{/ionBody}}
+</template>

@@ -1,0 +1,22 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+iron:router
+fourseven:scss
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:ionic
+useraccounts:ionic
+accounts-password
+accounts-base
+audit-argument-checks
+meteorhacks:fast-render
+fastclick
+aldeed:collection2
+aldeed:autoform@4.2.2
+meteoric:autoform-ionic
+houston:admin

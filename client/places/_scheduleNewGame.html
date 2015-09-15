@@ -1,0 +1,27 @@
+<template name="_scheduleNewGame">
+  {{#ionModal customTemplate=true}}
+    <div class="bar bar-header bar-stable">
+      <h2 class="title">Schedule new game - {{getCourtName}}</h2>
+      <button data-dismiss="modal" type="button" class="button button-clear">X</button>
+    </div>
+    <div class="content has-header overflow-scroll">
+      {{#with currentPlace}}
+        <p class="text-center dark padding">
+          <strong>
+            <i class="ion-clock positive"></i>&nbsp;
+            This place opens at {{openHour}}h and closes at {{closeHour}}h
+          </strong>
+        </p>
+      {{/with}}
+      {{#autoForm schema=gamesSchema id="scheduleNewGame" type="method" meteormethod="scheduleGame"}}
+        {{> afQuickField name="playDate" autofocus=""}}
+        {{> afQuickField name="startHour"}}
+        {{> afQuickField name="endHour"}}
+        {{> afQuickField name="players"}}
+        {{> afFieldInput name="courtId" type="hidden" value=getCourtId}}
+        {{> afFieldInput name="placeId" type="hidden" value=getPlaceId}}
+        <button type="submit" class="button button-positive button-block">Schedule</button>
+      {{/autoForm}}
+    </div>
+  {{/ionModal}}
+</template>

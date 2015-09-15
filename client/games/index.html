@@ -1,0 +1,35 @@
+<template name="games">
+  {{> _header}}
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+        {{#each currentGames}}
+          {{#ionItem}}
+            <h1 class="title">{{place.name}}</h1>
+            <i class="ion-clock positive"></i>&nbsp;
+            Date: <strong>{{nextPlayDate}} at {{startHour}}h-{{endHour}}h</strong><br>
+            {{#with place}}
+              <i class="ion-location assertive"></i>&nbsp;
+              Address: {{street}},{{neighborhood}}<br>
+              <i class="ion-map assertive"></i>&nbsp;
+              City/State: {{city}}/{{state}}<br>
+              <i class="ion-earth dark"></i>&nbsp;
+              Zipcode: {{zipCode}}<br>
+            {{/with}}
+            <i class="ion-ios-people royal"></i>&nbsp;
+            Friends: 
+            {{#each friends}}
+              <a href="mailto:{{email}}" target="_blank">{{email}}</a>
+            {{/each}}
+          {{/ionItem}}
+        {{else}}
+          <h3 class="text-center dark">
+            <i class="ion-ios-tennisball balanced large-icon"></i>
+            <br>
+            No game scheduled yet
+          </h3>
+        {{/each}}
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

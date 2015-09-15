@@ -4,15 +4,21 @@
     {{#ionContent}}
       {{#ionList}}
         {{#with currentPlace}}
-          {{#ionItem iconLeft=true}}
-            {{> ionIcon icon="ios-tennisball" class="balanced"}}
+          {{#ionItem}}
             <h1 class="title text-center">
               {{name}}
             </h1>
             <p class="dark">
+              <i class="ion-location assertive"></i>&nbsp;
               Address: {{street}}, {{neighborhood}}<br>
+              <i class="ion-map assertive"></i>&nbsp;
               City/State: {{city}}/{{state}}<br>
-              Zipcode: {{zipCode}}
+              <i class="ion-earth dark"></i>&nbsp;
+              Zipcode: {{zipCode}}<br>
+              <strong>
+                <i class="ion-clock positive"></i>&nbsp;
+                Open at {{openHour}}h and close at {{closeHour}}h
+              </strong>
             </p>
           {{/ionItem}}
           {{#ionItem}}
@@ -21,9 +27,9 @@
             </h2>
           {{/ionItem}}
           {{#each courts}}
-            <a href="#" class="item item-effect item-icon-right item-button-right" data-ion-modal="_scheduleNewGame" data-courtId="{{slugname}}">
+            <a href="#" class="item item-effect item-icon-left item-button-left" data-ion-modal="_scheduleNewGame" data-id="{{slugname}}" data-court={{name}}>
+              <i class="icon ion-calendar royal"></i>
               <h3 class="title">{{name}}</h3>
-              <i class="icon ion-calendar dark"></i>
             </a>
           {{/each}}
         {{else}}

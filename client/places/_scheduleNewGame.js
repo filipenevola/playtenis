@@ -1,6 +1,19 @@
+Template._scheduleNewGame.onRendered(function() {
+  Session.set("ionTab.current", "home");
+});
+
 Template._scheduleNewGame.helpers({
   gamesSchema: function() {
     return GamesSchema;
+  },
+  getPlaceId: function() {
+    return Router.current().params._id;
+  },
+  getCourtId: function() {
+    return Template.instance().data.id;
+  },
+  getCourtName: function() {
+    return Template.instance().data.court;
   },
   currentPlace: function() {
     var placeId = Router.current().params._id;
@@ -10,12 +23,6 @@ Template._scheduleNewGame.helpers({
 
 AutoForm.hooks({
   scheduleNewGame: {
-    onSubmit: function(game) {
-      game.placeId = Router.current().params.placeId;
-      game.courtId = Template.instance().data.courtId;
-      this.done();
-      return false;
-    },
     onSuccess: function (operation, result, template) {
       IonPopup.show({
         title: "Nice!",
@@ -25,23 +32,25 @@ AutoForm.hooks({
           type: "button-positive",
           onTap: function() {
             IonPopup.close();
-            Router.go("/");
+            IonModal.close();
           }
         }]
       });
     },
     onError: function(operation, error, template) {
-      IonPopup.show({
-        title: "Warning!",
-        template: "Something is wrong<br>Reason: "+ error.reason,
-        buttons: [{
-          text: "Ok",
-          type: "button-assertive",
-          onTap: function() {
-            IonPopup.close();
-          }
-        }]
-      });
+      if (error.reason) {
+        IonPopup.show({
+          title: "Warning!",
+          template: error.reason,
+          buttons: [{
+            text: "Ok",
+            type: "button-assertive",
+            onTap: function() {
+              IonPopup.close();
+            }
+          }]
+        });
+      }
     }
   }
 });

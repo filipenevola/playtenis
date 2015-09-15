@@ -1,3 +1,7 @@
+Template._registerNewPlace.onRendered(function() {
+  Session.set("ionTab.current", "home");
+});
+
 Template._registerNewPlace.helpers({
   placesSchema: function() {
     return PlacesSchema;
@@ -16,23 +20,24 @@ AutoForm.hooks({
           onTap: function() {
             IonPopup.close();
             IonModal.close();
-            Router.go("/");
           }
         }]
       });
     },
     onError: function(operation, error, template) {
-      IonPopup.show({
-        title: "Warning!",
-        template: "Something is wrong<br>Reason: "+ error.reason,
-        buttons: [{
-          text: "Ok",
-          type: "button-assertive",
-          onTap: function() {
-            IonPopup.close();
-          }
-        }]
-      });
+      if (error.reason) {
+        IonPopup.show({
+          title: "Warning!",
+          template: "Something is wrong<br>Reason: "+ error.reason,
+          buttons: [{
+            text: "Ok",
+            type: "button-assertive",
+            onTap: function() {
+              IonPopup.close();
+            }
+          }]
+        });
+      }
     }
   }
 });

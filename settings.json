@@ -1,7 +1,9 @@
 {
   "adminUser": {
-    "username": "admin",
     "email": "admin@mail.com",
-    "password": "adm123"
+    "password": "adm123",
+    "profile": {
+      "name": "Admin"
+    }
   }
 }

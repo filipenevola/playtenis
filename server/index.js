@@ -1,4 +1,7 @@
 Meteor.startup(function() {
+  // Reset data for tests purposes
+  // Places.remove({});
+  // Games.remove({});
   // First user is the admin
   try {
     var userId = Accounts.createUser(Meteor.settings.adminUser);
@@ -8,7 +11,6 @@ Meteor.startup(function() {
     console.log("PlayTenis - Admin already exist.");
   }
   Houston.add_collection(Meteor.users);
-  // Reset data for tests purposes
-  // Places.remove({});
-  // Games.remove({});
+  Houston.add_collection(Places);
+  Houston.add_collection(Games);
 });

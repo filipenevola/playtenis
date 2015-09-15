@@ -4,18 +4,20 @@
     {{#ionContent}}
       {{#ionList}}
         {{#each approvedPlaces}}
-          {{#ionItem path="home" buttonRight=true class="item-icon-right"}}
-            <h2>{{name}}</h2>
-            <small>
-              Address: {{city}}, {{neighborhood}} - {{zipCode}}
-              <br>
-              Courts: {{courts}}
+          {{#ionItem path="place" buttonRight=true iconRight=true class="item-effect"}}
+            <h1 class="title">{{name}}</h1>
+            <small class="dark">
+              <i class="ion-ios-tennisball balanced" title="Number of courts"></i>
+              {{courts.length}}
+              &nbsp;|&nbsp;
+              <i class="ion-ios-location assertive" title="Address"></i>
+              {{street}}, {{city}}-{{state}}
             </small>
             {{> ionIcon icon="ios-arrow-forward" class="positive"}}
           {{/ionItem}}
         {{else}}
-          <h3 class="text-center">
-            {{> ionIcon icon="ios-tennisball" class="balanced large-icon"}}
+          <h3 class="text-center dark">
+            <i class="ion-ios-tennisball balanced large-icon"></i>
             <br>
             No place registered yet
           </h3>

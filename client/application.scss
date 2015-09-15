@@ -18,3 +18,11 @@ html {
 .large-icon {
   font-size: 7em;
 }
+.item-effect {
+  transition-property: background;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+.item-effect:hover {
+  background: #DEDEDE;
+}

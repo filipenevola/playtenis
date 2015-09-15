@@ -20,3 +20,5 @@ aldeed:collection2
 aldeed:autoform@4.2.2
 meteoric:autoform-ionic
 houston:admin
+yasaricli:slugify
+matb33:collection-hooks

@@ -5,7 +5,7 @@ Meteor.publishComposite("currentGames", {
   children: [
     {
       find: function(game) {
-        return Places.find({_id: game.placeId});
+        return Places.findApprovedBy(game.placeId);
       }
     }
   ]

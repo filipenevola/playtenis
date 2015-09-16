@@ -5,22 +5,36 @@
       {{#ionList}}
         {{#each currentGames}}
           {{#ionItem}}
-            <h1 class="title">{{place.name}}</h1>
-            <i class="ion-clock positive"></i>&nbsp;
-            Date: <strong>{{nextPlayDate}} at {{startHour}}h-{{endHour}}h</strong><br>
-            {{#with place}}
-              <i class="ion-location assertive"></i>&nbsp;
-              Address: {{street}},{{neighborhood}}<br>
-              <i class="ion-map assertive"></i>&nbsp;
-              City/State: {{city}}/{{state}}<br>
-              <i class="ion-earth dark"></i>&nbsp;
-              Zipcode: {{zipCode}}<br>
-            {{/with}}
-            <i class="ion-ios-people royal"></i>&nbsp;
-            Friends: 
-            {{#each friends}}
-              <a href="mailto:{{email}}" target="_blank">{{email}}</a>
-            {{/each}}
+            <p>
+              <h2 class="title">{{place.name}}</h2>
+              <i class="ion-clock positive"></i>&nbsp;
+              Date: <strong>{{nextPlayDate}} at {{startHour}}h-{{endHour}}h</strong><br>
+              {{#with place}}
+                <i class="ion-location assertive"></i>&nbsp;&nbsp;
+                Address: {{street}},{{neighborhood}}<br>
+                <i class="ion-map assertive"></i>&nbsp;
+                City/State: {{city}}/{{state}}<br>
+                <i class="ion-earth dark"></i>&nbsp;
+                Zipcode: {{zipCode}}<br>
+              {{/with}}
+              <i class="ion-ios-people royal"></i>&nbsp;
+              Friends: 
+              {{#each friends}}
+                <a href="mailto:{{email}}" target="_blank">{{email}}</a>
+              {{/each}}
+            </p>
+            <p>
+              <div class="buttons">
+                {{#if isMyGame}}
+                  <button class="button button-assertive button-block icon-left ion-trash-a" data-cancel="{{_id}}">Cancel game</button>
+                {{else}}
+                  {{#if isInvite}}
+                    <button class="button button-balanced button-block icon-left ion-checkmark-round" data-accept="{{_id}}">Accept invite</button>
+                    <button class="button button-assertive button-block icon-left ion-close-round" data-deny="{{_id}}">Deny invite</button>
+                  {{/if}}
+                {{/if}}
+              </div>
+            </p>
           {{/ionItem}}
         {{else}}
           <h3 class="text-center dark">

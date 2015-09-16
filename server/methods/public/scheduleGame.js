@@ -11,15 +11,7 @@ Meteor.methods({
     } else if (Games.hasScheduled(game)) {
       throw new Meteor.Error(412, "You cannot schedule in this period");
     } else {
-      var gameId = Games.insert(game);
-      var game = Games.findOne(gameId);
-      game.players.forEach(function(player) {
-        var isAccepted = Meteor.user().email === player.email;
-        Meteor.users.update(  
-          {email: player.email},
-          {$push: {games: {gameId: gameId, accepted: isAccepted}}}
-        );
-      });
+      Games.schedule(game);
     }
   }
 });

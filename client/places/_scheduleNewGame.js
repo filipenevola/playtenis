@@ -33,6 +33,7 @@ AutoForm.hooks({
           onTap: function() {
             IonPopup.close();
             IonModal.close();
+            Router.go("/games");
           }
         }]
       });

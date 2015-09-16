@@ -24,3 +24,6 @@ yasaricli:slugify
 matb33:collection-hooks
 reywood:publish-composite
 momentjs:moment
+sanjo:jasmine
+velocity:html-reporter
+velocity:core

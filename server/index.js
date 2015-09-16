@@ -1,7 +1,4 @@
 Meteor.startup(function() {
-  // Reset data for tests purposes
-  // Places.remove({});
-  // Games.remove({});
   // First user is the admin
   try {
     var userId = Accounts.createUser(Meteor.settings.adminUser);
